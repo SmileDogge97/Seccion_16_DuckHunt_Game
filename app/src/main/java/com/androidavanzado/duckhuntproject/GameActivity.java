@@ -2,18 +2,26 @@ package com.androidavanzado.duckhuntproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import static com.androidavanzado.duckhuntproject.common.Constantes.EXTRA_NICK;
+
+import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
     TextView tvCounterDucks, tvTimer, tvNick;
     ImageView ivDuck;
     int counter = 0;
+    int anchoPantalla;
+    int altoPantalla;
+    Random aleatorio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +30,21 @@ public class GameActivity extends AppCompatActivity {
 
         initViewComponent();
         eventos();
+        initPantalla();
+    }
+
+    private void initPantalla() {
+        //Obtener el tamaño de la pantalla del dispositivo en el que estamos ejecutando la app
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        anchoPantalla = size.x;
+        altoPantalla = size.y;
+
+        //Inicializamos el objeto para generar número aleatorios
+        aleatorio = new Random();
+
+
     }
 
     private void eventos() {
@@ -30,8 +53,33 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 counter++;
                 tvCounterDucks.setText(String.valueOf(counter));
+
+                ivDuck.setImageResource(R.drawable.duck_clicked);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        moveDuck();
+                        ivDuck.setImageResource(R.drawable.duck);
+
+                    }
+                }, 500);
             }
         });
+    }
+
+    private void moveDuck() {
+        int min = 0;
+        int maximoX = anchoPantalla - ivDuck.getWidth();
+        int maximoY = altoPantalla - ivDuck.getHeight();
+
+        //Genramos 2 números aleatorios, uno para la coordenada x y otro para la coordenada Y
+        int randomX= aleatorio.nextInt(((maximoX - min) +1) + min);
+        int randomY= aleatorio.nextInt(((maximoY - min) +1) + min);
+
+        //Utilizamos los números aleatorios para mover el pato a esa posición
+        ivDuck.setX(randomX);
+        ivDuck.setY(randomY);
     }
 
     private void initViewComponent() {

@@ -1,5 +1,13 @@
 
+E
+java:S1604;"(Make this anonymous inner class a lambda(„ÑñŒ8½¯ß1
 J
-java:S1604"(Make this anonymous inner class a lambda(æßÏûÿÿÿÿ8ËÑı¬ß1
+java:S16043"(Make this anonymous inner class a lambda(æßÏûÿÿÿÿ8¾¯ß1
 f
-java:S1659"DDeclare "tvTimer" and all following declarations on a separate line.(óò‚¨üÿÿÿÿ8‰Òı¬ß1
+java:S1659"DDeclare "tvTimer" and all following declarations on a separate line.(óò‚¨üÿÿÿÿ8ô¯ß1
+[
+java:S1874&"9Remove this use of "getDefaultDisplay"; it is deprecated.(Ä¸¬Ìıÿÿÿÿ8‚¯ß1
+Q
+java:S1874("/Remove this use of "getSize"; it is deprecated.(¯ÊÃÙøÿÿÿÿ8üû‘¯ß1
+L
+java:S1874;"/Remove this use of "Handler"; it is deprecated.(„ÑñŒ8†‚¯ß1
