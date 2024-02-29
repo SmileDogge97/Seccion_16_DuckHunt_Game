@@ -2,6 +2,8 @@ package com.androidavanzado.duckhuntproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ public class GameActivity extends AppCompatActivity {
     int anchoPantalla;
     int altoPantalla;
     Random aleatorio;
+    boolean gameOver = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +48,39 @@ public class GameActivity extends AppCompatActivity {
 
             public void onFinish() {
                 tvTimer.setText("0s");
+                gameOver = true;
+                mostrarDialogoGameOver();
             }
         }.start();
 
+    }
+
+    private void mostrarDialogoGameOver() {
+        // 1. Instantiate an AlertDialog.Builder with its constructor.
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        // 2. Chain together various setter methods to set the dialog characteristics.
+        builder.setMessage("Haz conseguido cazar " + counter + " patos")
+                .setTitle("Game Over");
+
+        // Add the buttons.
+        builder.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User taps OK button.
+            }
+        });
+        builder.setNegativeButton("Salir", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancels the dialog.
+                dialog.dismiss();
+            }
+        });
+
+        // 3. Get the AlertDialog.
+        AlertDialog dialog = builder.create();
+
+        //Mostrar el dialog
+        dialog.show();
     }
 
     private void initPantalla() {
@@ -68,19 +101,20 @@ public class GameActivity extends AppCompatActivity {
         ivDuck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter++;
-                tvCounterDucks.setText(String.valueOf(counter));
+                if (!gameOver){
+                    counter++;
+                    tvCounterDucks.setText(String.valueOf(counter));
 
-                ivDuck.setImageResource(R.drawable.duck_clicked);
+                    ivDuck.setImageResource(R.drawable.duck_clicked);
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        moveDuck();
-                        ivDuck.setImageResource(R.drawable.duck);
-
-                    }
-                }, 500);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ivDuck.setImageResource(R.drawable.duck);
+                            moveDuck();
+                        }
+                    }, 500);
+                }
             }
         });
     }

@@ -1,13 +1,17 @@
 
-E
-java:S1604L"(Make this anonymous inner class a lambda(„ÑñŒ8¦ƒ±ß1
 J
-java:S1604D"(Make this anonymous inner class a lambda(æßÏûÿÿÿÿ8§ƒ±ß1
+java:S1604C"(Make this anonymous inner class a lambda(ÀÛ¯™üÿÿÿÿ8õƒÀ³ß1
+E
+java:S1604H"(Make this anonymous inner class a lambda(ËÑİ8öƒÀ³ß1
+E
+java:S1604n"(Make this anonymous inner class a lambda(„ÑñŒ8öƒÀ³ß1
+J
+java:S1604e"(Make this anonymous inner class a lambda(æßÏûÿÿÿÿ8öƒÀ³ß1
 f
-java:S1659"DDeclare "tvTimer" and all following declarations on a separate line.(óò‚¨üÿÿÿÿ8Üƒ±ß1
+java:S1659"DDeclare "tvTimer" and all following declarations on a separate line.(óò‚¨üÿÿÿÿ8®„À³ß1
 [
-java:S18747"9Remove this use of "getDefaultDisplay"; it is deprecated.(Ä¸¬Ìıÿÿÿÿ8èƒ±ß1
+java:S1874X"9Remove this use of "getDefaultDisplay"; it is deprecated.(Ä¸¬Ìıÿÿÿÿ8¼„À³ß1
 Q
-java:S18749"/Remove this use of "getSize"; it is deprecated.(¯ÊÃÙøÿÿÿÿ8ëƒ±ß1
+java:S1874Z"/Remove this use of "getSize"; it is deprecated.(¯ÊÃÙøÿÿÿÿ8¾„À³ß1
 L
-java:S1874L"/Remove this use of "Handler"; it is deprecated.(„ÑñŒ8óƒ±ß1
+java:S1874n"/Remove this use of "Handler"; it is deprecated.(„ÑñŒ8Â„À³ß1
