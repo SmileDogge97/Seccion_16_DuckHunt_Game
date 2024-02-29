@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Display;
 import android.view.View;
@@ -31,6 +32,22 @@ public class GameActivity extends AppCompatActivity {
         initViewComponent();
         eventos();
         initPantalla();
+        initCuentaAtras();
+    }
+
+    private void initCuentaAtras() {
+        new CountDownTimer(60000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                long segundosRestantes = millisUntilFinished / 1000;
+                tvTimer.setText(segundosRestantes + "s");
+            }
+
+            public void onFinish() {
+                tvTimer.setText("0s");
+            }
+        }.start();
+
     }
 
     private void initPantalla() {
