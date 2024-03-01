@@ -35,11 +35,12 @@ public class GameActivity extends AppCompatActivity {
         initViewComponent();
         eventos();
         initPantalla();
+        moveDuck();
         initCuentaAtras();
     }
 
     private void initCuentaAtras() {
-        new CountDownTimer(60000, 1000) {
+        new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 long segundosRestantes = millisUntilFinished / 1000;
@@ -67,12 +68,18 @@ public class GameActivity extends AppCompatActivity {
         builder.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User taps OK button.
+                counter = 0;
+                tvCounterDucks.setText("0");
+                gameOver = false;
+                initCuentaAtras();
+                moveDuck();
             }
         });
         builder.setNegativeButton("Salir", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User cancels the dialog.
                 dialog.dismiss();
+                finish();
             }
         });
 
@@ -93,8 +100,6 @@ public class GameActivity extends AppCompatActivity {
 
         //Inicializamos el objeto para generar número aleatorios
         aleatorio = new Random();
-
-
     }
 
     private void eventos() {
