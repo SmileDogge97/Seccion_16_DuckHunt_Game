@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1092610591697",
+    "project_id": "duckhuntgame-2e2b0",
+    "storage_bucket": "duckhuntgame-2e2b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092610591697:android:7941e1e93f7f7efa716ef0",
+        "android_client_info": {
+          "package_name": "com.androidavanzado.duckhuntproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeALEy_3HlyLkGDUw_bZt-yOFUVLaLxYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
